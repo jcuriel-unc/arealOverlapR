@@ -35,6 +35,8 @@ best_match_new <- function(overlap_dyad_output, id1){
   list.of.packages <- c("stringr", "tidyverse")
   new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
   if(length(new.packages)) install.packages(new.packages)
+  lapply(list.of.packages, require, character.only = TRUE)
+  
   ##check if fields present 
   if(("overlap1" %in% names(overlap_dyad_output))==FALSE){
     stop('The overlap1 field from the overlap_dyad_creatr is not present.')
